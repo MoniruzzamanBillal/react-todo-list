@@ -1,0 +1,8 @@
+.liItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: pink;
+  margin: 2px 0;
+  padding: 0;
+}

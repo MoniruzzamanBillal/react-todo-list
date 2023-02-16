@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: red;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inpField {
+  display: flex;
+  justify-content: center;
+}
+
+.container .input {
+  background-color: rebeccapurple;
+  width: 30%;
+  margin-right: 4px;
+}
+
+.list {
+  background-color: rgb(107, 233, 255);
+  width: 36%;
+  margin: 2px auto;
+}

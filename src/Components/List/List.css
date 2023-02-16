@@ -1,0 +1,64 @@
+.list {
+  /* background-color: rgb(107, 233, 255); */
+  width: 92%;
+  margin: 8px auto;
+}
+
+.liItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(to right, #f857a6, #ff5858);
+
+  background: linear-gradient(to right, #4776e6, #8e54e9);
+  color: white;
+  margin: 3px 0;
+  padding: 6px 5px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.liItems p {
+  margin: 0;
+}
+
+.editForm {
+  width: 67%;
+}
+
+.grp {
+  height: 37px;
+  width: 71px;
+}
+
+.btnGroup {
+  width: 32%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.delete {
+  background-color: rgb(255, 0, 0);
+}
+
+.delete:hover {
+  background-color: rgb(229, 5, 5);
+  transform: scale(1.04);
+}
+
+.edit {
+  background-color: rgb(247, 0, 255);
+}
+
+.edit:hover {
+  background-color: rgb(219, 7, 226);
+  transform: scale(1.04);
+}
+.update {
+  background-color: rgb(12, 182, 12);
+}
+.update:hover {
+  background-color: rgb(23, 152, 23);
+  transform: scale(1.04);
+}

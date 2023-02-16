@@ -1,13 +1,25 @@
 import "./Todo.css";
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import List from "../List/List";
 
 export const listContext = createContext();
 
+function getStorageItem() {
+  let item = localStorage.getItem("liItems");
+
+  let items = JSON.parse(item);
+
+  if (item) {
+    return items;
+  } else {
+    return [];
+  }
+}
+
 export default function Todo() {
   const [inputValue, setInputValue] = useState("");
-  const [liItems, setItems] = useState([]);
+  const [liItems, setItems] = useState(getStorageItem);
   const [editTodo, setEditTodo] = useState(null);
   const [editText, setEditText] = useState("");
 
@@ -46,6 +58,7 @@ export default function Todo() {
       });
 
       setItems(prevArray);
+
       setInputValue("");
     }
   };
@@ -94,6 +107,10 @@ export default function Todo() {
     setEditTodo(null);
     setEditText("");
   };
+
+  useEffect(() => {
+    localStorage.setItem("liItems", JSON.stringify(liItems));
+  }, [liItems]);
 
   return (
     <>

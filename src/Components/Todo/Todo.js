@@ -7,11 +7,8 @@ export const listContext = createContext();
 
 function getStorageItem() {
   let item = localStorage.getItem("liItems");
-
-  let items = JSON.parse(item);
-
   if (item) {
-    return items;
+    return JSON.parse(item);
   } else {
     return [];
   }
@@ -22,6 +19,7 @@ export default function Todo() {
   const [liItems, setItems] = useState(getStorageItem);
   const [editTodo, setEditTodo] = useState(null);
   const [editText, setEditText] = useState("");
+  const [clsName, setClsName] = useState("");
 
   const onchange = (e) => {
     setInputValue(e.target.value);
@@ -42,9 +40,11 @@ export default function Todo() {
       let itemsObj = {
         id: Math.random(),
         value: inputValue,
+        chk: true,
       };
 
       let prevArray = [...liItems];
+
       prevArray.push(itemsObj);
 
       prevArray.sort((a, b) => {
@@ -79,7 +79,7 @@ export default function Todo() {
 
   const updateEdit = (id) => {
     const editItem = liItems.filter((ele) => {
-      if (ele.id == id) {
+      if (ele.id === id) {
         if (
           editText === undefined ||
           editText === "" ||
@@ -114,7 +114,16 @@ export default function Todo() {
 
   return (
     <>
-      <listContext.Provider value={{ editText, editTodo }}>
+      <listContext.Provider
+        value={{
+          editText,
+          editTodo,
+          liItems,
+          clsName,
+          setItems,
+          setClsName,
+        }}
+      >
         <div className="container">
           <div className="todoContainer">
             <div className="inpField">
@@ -148,11 +157,13 @@ export default function Todo() {
                       key={ele.id}
                       id={ele.id}
                       value={ele.value}
+                      chk={ele.chk}
                       onEditChange={onEditChange}
                       updateEdit={updateEdit}
                       editClick={editClick}
                       onChange={onchange}
                       del={del}
+                      ele={ele}
                     />
                   </>
                 );

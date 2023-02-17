@@ -8,19 +8,38 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: linear-gradient(to right, #f857a6, #ff5858);
-
   background: linear-gradient(to right, #4776e6, #8e54e9);
   color: white;
   margin: 3px 0;
   padding: 6px 5px;
   cursor: pointer;
   border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.liItems::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 65%;
+  bottom: 50%;
+  left: 0%;
+  transform: scale(0);
+  border-radius: 8px;
+
+  background-color: rgb(255, 255, 255);
+}
+
+.liItems.has::before {
+  transform: scale(1) translate(0%, 50%);
 }
 
 .liItems p {
   margin: 0;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 .editForm {

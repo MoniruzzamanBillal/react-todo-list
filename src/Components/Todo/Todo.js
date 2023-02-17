@@ -115,7 +115,19 @@ export default function Todo() {
       }
     });
 
-    setItems(editItem);
+    let cross = editItem.filter((ele) => {
+      if (!ele.chk) {
+        return ele;
+      }
+    });
+
+    let notCross = editItem.filter((ele) => {
+      if (ele.chk) {
+        return ele;
+      }
+    });
+
+    setItems([...notCross, ...cross]);
     setEditTodo(null);
     setEditText("");
   };

@@ -126,9 +126,10 @@ export default function List(props) {
             />
           ) : (
             <div className="msg">
-              <input
+              {/* <input
                 className="check"
                 id={props.id}
+                
                 chk={props.ele.chk}
                 type="checkbox"
                 checked={checkBox}
@@ -136,7 +137,7 @@ export default function List(props) {
                 onClick={() => {
                   ajaira(props.id);
                 }}
-              />
+              /> */}
 
               <label htmlFor={props.id}>
                 <p>{props.value}</p>
@@ -155,7 +156,7 @@ export default function List(props) {
               Delete
             </button>
 
-            {props.id === editTodo ? (
+            {/* {props.id === editTodo ? (
               <button
                 type="button"
                 className="btn btn-danger update grp"
@@ -175,7 +176,7 @@ export default function List(props) {
               >
                 Edit
               </button>
-            )}
+            )} */}
           </div>
         </div>
       )}

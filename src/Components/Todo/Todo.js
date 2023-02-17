@@ -57,7 +57,19 @@ export default function Todo() {
         }
       });
 
-      setItems(prevArray);
+      let cross = prevArray.filter((ele) => {
+        if (!ele.chk) {
+          return ele;
+        }
+      });
+
+      let notCross = prevArray.filter((ele) => {
+        if (ele.chk) {
+          return ele;
+        }
+      });
+
+      setItems([...notCross, ...cross]);
 
       setInputValue("");
     }

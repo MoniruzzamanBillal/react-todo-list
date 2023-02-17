@@ -7,7 +7,6 @@ export default function List(props) {
     useContext(listContext);
 
   const [checkBox, setCheckBox] = useState(false);
-  const [has, notHas] = useState("notHas");
 
   function setCheckFun(e) {
     let st = e.target.checked;
@@ -21,29 +20,26 @@ export default function List(props) {
       if (ele.id === id) {
         if (checkBox) {
           ele.chk = true;
-          // ele.value = "true";
         } else {
           ele.chk = false;
-          // ele.value = "false";
         }
       }
       return ele;
     });
 
-    console.log(checkBox);
-    console.log(nl);
-    setItems(nl);
-
-    let a = nl.map((ele) => {
-      if (ele.id === id) {
-        if (ele.chk) {
-          notHas("notHas");
-        } else {
-          console.log("FAlse");
-          notHas("has");
-        }
+    let cross = liItems.filter((ele) => {
+      if (!ele.chk) {
+        return ele;
       }
     });
+
+    let notCross = liItems.filter((ele) => {
+      if (ele.chk) {
+        return ele;
+      }
+    });
+
+    setItems([...notCross, ...cross]);
   }
 
   return (

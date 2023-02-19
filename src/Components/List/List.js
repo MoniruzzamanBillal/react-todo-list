@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { listContext } from "../Todo/Todo";
 import "./List.css";
+import Nothas from "./Nothas";
+import Has from "./Has";
 
 export default function List(props) {
   const { editText, editTodo, liItems, clsName, setClsName, setItems } =
@@ -45,136 +47,37 @@ export default function List(props) {
   return (
     <>
       {props.ele.chk ? (
-        <div className={`liItems  `} key={props.id}>
-          {props.id === editTodo ? (
-            <input
-              type="text"
-              className="form-control editForm"
-              f
-              placeholder="Enter your list"
-              value={editText}
-              onChange={props.onEditChange}
-            />
-          ) : (
-            <div className="msg">
-              <input
-                className="check"
-                id={props.id}
-                chk={props.ele.chk}
-                type="checkbox"
-                checked={checkBox}
-                onChange={setCheckFun}
-                onClick={() => {
-                  ajaira(props.id);
-                }}
-              />
-
-              <label htmlFor={props.id}>
-                <p>{props.value}</p>
-              </label>
-            </div>
-          )}
-
-          <div className="btnGroup">
-            <button
-              type="button"
-              onClick={() => {
-                props.del(props.id);
-              }}
-              className="btn btn-danger delete grp"
-            >
-              Delete
-            </button>
-
-            {props.id === editTodo ? (
-              <button
-                type="button"
-                className="btn btn-danger update grp"
-                onClick={() => {
-                  props.updateEdit(editTodo);
-                }}
-              >
-                update
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-danger edit grp"
-                onClick={() => {
-                  props.editClick(props.id);
-                }}
-              >
-                Edit
-              </button>
-            )}
-          </div>
-        </div>
+        <Nothas
+          key={props.id}
+          onChange={props.onEditChange}
+          id={props.id}
+          chk={props.ele.chk}
+          checkBox={checkBox}
+          setCheckFun={setCheckFun}
+          ajaira={ajaira}
+          value={props.value}
+          ele={props.ele}
+          del={props.del}
+          editClick={props.editClick}
+          onEditChange={props.onEditChange}
+          updateEdit={props.updateEdit}
+        />
       ) : (
-        <div className={`liItems has `} key={props.id}>
-          {props.id === editTodo ? (
-            <input
-              type="text"
-              className="form-control editForm"
-              f
-              placeholder="Enter your list"
-              value={editText}
-              onChange={props.onEditChange}
-            />
-          ) : (
-            <div className="msg">
-              {/* <input
-                className="check"
-                id={props.id}
-                
-                chk={props.ele.chk}
-                type="checkbox"
-                checked={checkBox}
-                onChange={setCheckFun}
-                onClick={() => {
-                  ajaira(props.id);
-                }}
-              /> */}
-
-              <label htmlFor={props.id}>
-                <p>{props.value}</p>
-              </label>
-            </div>
-          )}
-
-          <div className="btnGroup">
-            <button
-              type="button"
-              onClick={() => {
-                props.del(props.id);
-              }}
-              className="btn btn-danger delete grp"
-            >
-              Delete
-            </button>
-
-            {/* {props.id === editTodo ? (
-              <button
-                type="button"
-                className="btn btn-danger update grp"
-                onClick={() => {
-                  props.updateEdit(editTodo);
-                }}
-              >
-                update
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-danger edit grp"
-                onClick={() => {
-                  props.editClick(props.id);
-                }}
-              >
-                Edit
-              </button>
-            )} */}
-          </div>
-        </div>
+        <Has
+          key={props.id}
+          onChange={props.onEditChange}
+          id={props.id}
+          chk={props.ele.chk}
+          checkBox={checkBox}
+          setCheckFun={setCheckFun}
+          ajaira={ajaira}
+          value={props.value}
+          ele={props.ele}
+          del={props.del}
+          editClick={props.editClick}
+          onEditChange={props.onEditChange}
+          updateEdit={props.updateEdit}
+        />
       )}
     </>
   );

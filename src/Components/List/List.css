@@ -30,7 +30,7 @@
   border-radius: 8px;
   transform-origin: left;
   background-color: rgb(255, 255, 255);
-  transition: transform 0.4s linear;
+  transition: transform 1s linear;
 }
 
 .liItems.has::before {
@@ -39,7 +39,8 @@
 
 .liItems p {
   margin: 0;
-  padding-left: 5px;
+  padding-left: 8px;
+  font-size: 17px;
   cursor: pointer;
 }
 
